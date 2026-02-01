@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Average"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia excepteur duis est qui sint occaecat ullamco consectetur irure commodo tempor incididunt. Qui sit ipsum exercitation in tempor ex Lorem fugiat occaecat irure consectetur enim esse exercitation."
+						}
+					}
+				]
+			},
+			"buy_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "her",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
