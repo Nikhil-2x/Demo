@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Roboto_Flex } from "next/font/google"
+import { Roboto_Flex } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/Footer";
 
 const robotFlex = Roboto_Flex({
   variable: "--font-roboto-flex",
   subsets: ["latin"],
   display: "swap",
-  axes: ["wdth", "slnt", "opsz"]
+  axes: ["wdth", "slnt", "opsz"],
 });
-
 
 export const metadata: Metadata = {
   title: "Nick's Keyboard",
@@ -22,10 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${robotFlex.variable}  antialiased`}
-      >
+      <body className={`${robotFlex.variable} antialiased`}>
         {children}
+        <Footer />
       </body>
     </html>
   );
