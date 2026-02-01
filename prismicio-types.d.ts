@@ -69,7 +69,10 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomeDocumentDataSlicesSlice = BentoBoxSlice | HeroSlice;
+type HomeDocumentDataSlicesSlice =
+  | DummyProductSlice
+  | BentoBoxSlice
+  | HeroSlice;
 
 /**
  * Content for Home documents
@@ -223,6 +226,88 @@ export type BentoBoxSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *DummyProduct → Default → Primary → itemss*
+ */
+export interface DummyProductSliceDefaultPrimaryItemssItem {
+  /**
+   * label field in *DummyProduct → Default → Primary → itemss*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dummy_product.default.primary.itemss[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * prod_image field in *DummyProduct → Default → Primary → itemss*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dummy_product.default.primary.itemss[].prod_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  prod_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *DummyProduct → Default → Primary*
+ */
+export interface DummyProductSliceDefaultPrimary {
+  /**
+   * Heading field in *DummyProduct → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dummy_product.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * itemss field in *DummyProduct → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dummy_product.default.primary.itemss[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  itemss: prismic.GroupField<
+    Simplify<DummyProductSliceDefaultPrimaryItemssItem>
+  >;
+}
+
+/**
+ * Default variation for DummyProduct Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DummyProductSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DummyProductSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DummyProduct*
+ */
+type DummyProductSliceVariation = DummyProductSliceDefault;
+
+/**
+ * DummyProduct Shared Slice
+ *
+ * - **API ID**: `dummy_product`
+ * - **Description**: DummyProduct
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DummyProductSlice = prismic.SharedSlice<
+  "dummy_product",
+  DummyProductSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -314,6 +399,11 @@ declare module "@prismicio/client" {
       BentoBoxSliceDefaultPrimary,
       BentoBoxSliceVariation,
       BentoBoxSliceDefault,
+      DummyProductSlice,
+      DummyProductSliceDefaultPrimaryItemssItem,
+      DummyProductSliceDefaultPrimary,
+      DummyProductSliceVariation,
+      DummyProductSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

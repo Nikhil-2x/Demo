@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "dummy_product": {
+              "type": "SharedSlice"
+            },
             "bento_box": {
               "type": "SharedSlice"
             },

@@ -1,11 +1,12 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { Bounded } from "@/components/Bounded";
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./Scene";
+import VariableProximity from "@/components/VariableProximity";
 
 /**
  * Props for `Hero`.
@@ -16,6 +17,8 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero: FC<HeroProps> = ({ slice }) => {
+  const containeredRef = useRef(null);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -28,7 +31,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         </Canvas>
       </div>
 
-      <div className="hero-content absolute inset-x-0 top-0 h-dvh">
+      <div
+        ref={containeredRef}
+        className="hero-content absolute inset-x-0 top-0 h-dvh"
+      >
         <Bounded
           fullWidth
           className="absolute inset-x-0 top-18 md:top-24 md:left-[8vw]"
