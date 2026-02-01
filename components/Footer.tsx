@@ -154,7 +154,7 @@ export function Footer() {
       <div className="mt-12 border-t border-gray-800 pt-8">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-gray-400">
-            © {currentYear} Nick's Keyboard. All rights reserved.
+            © {currentYear} Nick&aposs Keyboard. All rights reserved.
           </p>
 
           <div className="flex gap-6">
